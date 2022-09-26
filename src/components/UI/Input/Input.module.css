@@ -1,0 +1,30 @@
+.input {
+  /* positioning */
+  /* display */
+  display: flex;
+  align-items: center;
+  /* box model */
+  margin-bottom: 0.5rem;
+  /* font or others */
+}
+
+.input label {
+  /* positioning */
+  /* display */
+  /* box model */
+  margin-right: 1rem;
+  /* font or others */
+  font-weight: bold;
+}
+
+.input input {
+  /* positioning */
+  /* display */
+  /* box model */
+  width: 3rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 0.5rem;
+  /* font or others */
+  font: inherit;
+}

@@ -1,8 +1,10 @@
 import MealItem from './MealItem';
+import styles from './Meals.module.css';
+
 const Meals = (props) => {
   const { meals } = props;
   return (
-    <ul>
+    <form class={styles['meals-list']}>
       {meals.map((meal) => (
         <MealItem
           name={meal.name}
@@ -10,7 +12,7 @@ const Meals = (props) => {
           price={meal.price}
         ></MealItem>
       ))}
-    </ul>
+    </form>
   );
 };
 

@@ -1,17 +1,16 @@
+import styles from './MealItem.module.css';
+import MainItemForm from './MealtemForm';
+
 const MealItem = (props) => {
   return (
-    <li>
+    <div className={styles['meal-item']}>
       <div>
         <h3>{props.name}</h3>
-        <p>{props.intro}</p>
-        <p>{props.price}</p>
+        <p className={styles['meal-intro']}>{props.intro}</p>
+        <p className={styles['meal-price']}>{props.price}</p>
       </div>
-      <div>
-        <h3>Amount</h3>
-        <input type='number' />
-        <button>+ Add</button>
-      </div>
-    </li>
+      <MainItemForm />
+    </div>
   );
 };
 
