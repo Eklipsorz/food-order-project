@@ -32,7 +32,7 @@ function App() {
   return (
     <React.Fragment>
       <MainHeader />
-      <Meals meals={meals} />
+      {/* <Meals meals={meals} /> */}
     </React.Fragment>
   );
 }
