@@ -7,7 +7,7 @@ const MealItem = (props) => {
       <div>
         <h3>{props.name}</h3>
         <p className={styles['meal-intro']}>{props.intro}</p>
-        <p className={styles['meal-price']}>{props.price}</p>
+        <p className={styles['meal-price']}>{`${props.price}`}</p>
       </div>
       <MainItemForm />
     </div>

@@ -4,7 +4,7 @@ import styles from './Meals.module.css';
 const Meals = (props) => {
   const { meals } = props;
   return (
-    <form class={styles['meals-list']}>
+    <div class={styles['meals-list']}>
       {meals.map((meal) => (
         <MealItem
           name={meal.name}
@@ -12,7 +12,7 @@ const Meals = (props) => {
           price={meal.price}
         ></MealItem>
       ))}
-    </form>
+    </div>
   );
 };
 

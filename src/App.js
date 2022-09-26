@@ -1,29 +1,32 @@
 import './App.css';
 import MainHeader from './components/Layout/MainHeader';
-import MainBanner from './components/Layout/MainBanner';
 import Meals from './components/Meals/Meals';
 import React from 'react';
 
 const DUMMY_DATA = [
   {
+    id: 'e1',
     name: 'Sushi',
     intro: 'Finest fish and veggies',
-    price: 2290,
+    price: '22.99',
   },
   {
+    id: 'e2',
     name: 'Schnitzel',
     intro: 'A german specialty!',
-    price: 1650,
+    price: '16.50',
   },
   {
+    id: 'e3',
     name: 'Barbecue Burger',
     intro: 'American, raw, meaty',
-    price: 1299,
+    price: '12.99',
   },
   {
+    id: 'e4',
     name: 'Green Bowl',
     intro: 'Healthy...and green...',
-    price: 1899,
+    price: '18.99',
   },
 ];
 
