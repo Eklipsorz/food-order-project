@@ -1,16 +1,17 @@
 import React from 'react';
 import MainBanner from './MainBanner';
+import CartButton from '../Cart/CartButton';
 
 import styles from './MainHeader.module.css';
 
 const MainHeader = (props) => {
   return (
     <React.Fragment>
-      <MainBanner />
       <div className={styles.header}>
         <h2>ReactMeals</h2>
-        <button>Your Cart</button>
+        <CartButton />
       </div>
+      <MainBanner />
     </React.Fragment>
   );
 };

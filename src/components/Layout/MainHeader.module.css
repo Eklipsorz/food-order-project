@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   left: 0;
-
+  z-index: 10;
   /* display */
   display: flex;
   justify-content: space-between;
@@ -11,9 +11,12 @@
   /* box model */
   padding: 0 10%;
   width: 100%;
+  height: 5rem;
 
   /* font or others */
   background-color: #8a2b06;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 .header h2 {
@@ -23,5 +26,3 @@
   /* font or others */
   color: #fff;
 }
-
-
