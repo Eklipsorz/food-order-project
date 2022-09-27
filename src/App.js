@@ -1,5 +1,6 @@
 import './App.css';
 import MainHeader from './components/Layout/MainHeader';
+import CartModal from './components/Cart/CartModal';
 import Meals from './components/Meals/Meals';
 import React from 'react';
 
@@ -35,6 +36,7 @@ function App() {
 
   return (
     <React.Fragment>
+      <CartModal />
       <MainHeader />
       <Meals meals={meals} />
     </React.Fragment>
