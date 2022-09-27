@@ -1,8 +1,8 @@
 import './App.css';
 import MainHeader from './components/Layout/MainHeader';
-import CartModal from './components/Cart/CartModal';
+import Cart from './components/Cart/Cart';
 import Meals from './components/Meals/Meals';
-import React from 'react';
+import React, { useState } from 'react';
 
 const DUMMY_DATA = [
   {
@@ -33,11 +33,20 @@ const DUMMY_DATA = [
 
 function App() {
   const meals = DUMMY_DATA;
+  const [cartIsShown, setCartIsShown] = useState(false);
+
+  const showCartHandler = () => {
+    setCartIsShown(true);
+  };
+
+  const hideCartHandler = () => {
+    setCartIsShown(false);
+  };
 
   return (
     <React.Fragment>
-      <CartModal />
-      <MainHeader />
+      {cartIsShown && <Cart onHideCart={hideCartHandler} />}
+      <MainHeader onShowCart={showCartHandler} />
       <Meals meals={meals} />
     </React.Fragment>
   );

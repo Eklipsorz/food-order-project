@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Cart.module.css';
 import CartItem from './CartItem';
-
+import Modal from '../UI/Modal/Modal';
 
 const Cart = (props) => {
   const CartItems = [
@@ -21,7 +21,7 @@ const Cart = (props) => {
   ];
 
   return (
-    <React.Fragment>
+    <Modal onClick={props.onHideCart}>
       <div className={styles['cart-items']}>
         {CartItems.map((item) => (
           <CartItem
@@ -38,10 +38,10 @@ const Cart = (props) => {
         <h3>$33.00</h3>
       </div>
       <div className={styles['actions']}>
-        <button>Close</button>
+        <button onClick={props.onHideCart}>Close</button>
         <button>Order</button>
       </div>
-    </React.Fragment>
+    </Modal>
   );
 };
 

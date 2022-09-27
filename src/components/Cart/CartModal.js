@@ -7,12 +7,12 @@ const CartModal = (props) => {
   return (
     <React.Fragment>
       {ReactDOM.createPortal(
-        <BackDrop onClick={props.onClick} />,
+        <BackDrop onClick={props.onHideCart} />,
         document.getElementById('backdrop-root'),
       )}
       {ReactDOM.createPortal(
-        <Modal onClick={props.onClick}>
-          <Cart />
+        <Modal>
+          <Cart onHideCart={props.onHideCart} />
         </Modal>,
         document.getElementById('modal-root'),
       )}

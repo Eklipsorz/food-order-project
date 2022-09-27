@@ -1,11 +1,27 @@
 import styles from './Modal.module.css';
-
+import React from 'react';
+import ReactDOM from 'react-dom';
 const BackDrop = (props) => {
-  return <div className={styles.backdrop}></div>;
+  return <div className={styles.backdrop} onClick={props.onClick}></div>;
 };
 
-const Modal = (props) => {
+const ModalOverLay = (props) => {
   return <div className={styles.modal}>{props.children}</div>;
 };
 
-export { Modal, BackDrop };
+const Modal = (props) => {
+  return (
+    <React.Fragment>
+      {ReactDOM.createPortal(
+        <BackDrop onClick={props.onClick} />,
+        document.getElementById('backdrop-root'),
+      )}
+      {ReactDOM.createPortal(
+        <ModalOverLay>{props.children}</ModalOverLay>,
+        document.getElementById('modal-root'),
+      )}
+    </React.Fragment>
+  );
+};
+
+export default Modal;
