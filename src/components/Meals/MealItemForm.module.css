@@ -13,6 +13,8 @@
   border: 1px solid #8a2b06;
   padding: 0.25rem 2rem;
   border-radius: 20px;
+  margin-top: 0.5rem;
+
   /* font or others */
   font: inherit;
   cursor: pointer;
