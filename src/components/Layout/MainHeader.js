@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import MainBanner from './MainBanner';
 import CartButton from '../Cart/CartButton';
-
 import styles from './MainHeader.module.css';
 
+
 const MainHeader = (props) => {
+
+
   return (
     <React.Fragment>
       <div className={styles.header}>

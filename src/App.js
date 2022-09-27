@@ -3,6 +3,7 @@ import MainHeader from './components/Layout/MainHeader';
 import Cart from './components/Cart/Cart';
 import Meals from './components/Meals/Meals';
 import React, { useState } from 'react';
+import CartProvider from './store/CartProvider';
 
 const DUMMY_DATA = [
   {
@@ -44,11 +45,11 @@ function App() {
   };
 
   return (
-    <React.Fragment>
+    <CartProvider>
       {cartIsShown && <Cart onHideCart={hideCartHandler} />}
       <MainHeader onShowCart={showCartHandler} />
       <Meals meals={meals} />
-    </React.Fragment>
+    </CartProvider>
   );
 }
 
