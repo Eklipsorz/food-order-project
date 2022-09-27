@@ -32,6 +32,7 @@ const DUMMY_DATA = [
 
 function App() {
   const meals = DUMMY_DATA;
+
   return (
     <React.Fragment>
       <MainHeader />

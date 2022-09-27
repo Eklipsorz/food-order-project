@@ -4,7 +4,17 @@ import styles from './MealItemForm.module.css';
 const MainItemForm = (props) => {
   return (
     <form className={styles.form}>
-      <Input type='number' label='Amount' />
+      <Input
+        label='Amount'
+        attr={{
+          id: props.id,
+          type: 'number',
+          min: '1',
+          max: '5',
+          step: '1',
+          defaultValue: '1',
+        }}
+      />
       <button>+ Add</button>
     </form>
   );
