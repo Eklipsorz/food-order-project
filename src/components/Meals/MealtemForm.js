@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import NumberInput from '../UI/Input/NumberInput';
 import styles from './MealItemForm.module.css';
 
-const MainItemForm = (props) => {
+const MealItemForm = (props) => {
   const inputRef = useRef();
   const [isValidAmount, setIsValidAmount] = useState(true);
   const cartSubmitHandler = (event) => {
@@ -42,4 +42,4 @@ const MainItemForm = (props) => {
   );
 };
 
-export default MainItemForm;
+export default MealItemForm;

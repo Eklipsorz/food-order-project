@@ -22,8 +22,8 @@ const CartItem = (props) => {
       </div>
 
       <div className={styles['actions']}>
-        <button>-</button>
-        <button>+</button>
+        <button onRemove={props.onRemove}>-</button>
+        <button onAdd={props.onAdd}>+</button>
       </div>
     </div>
   );

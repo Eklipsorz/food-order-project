@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import styles from './MealItem.module.css';
-import MainItemForm from './MealtemForm';
+import MealItemForm from './MealtemForm';
 import CartContext from '../../store/cart-context';
 
 const MealItem = (props) => {
@@ -23,7 +23,7 @@ const MealItem = (props) => {
           {Number.parseFloat(props.price).toFixed(2)}
         </p>
       </div>
-      <MainItemForm id={props.id} onAddToCart={addToCartHandler} />
+      <MealItemForm id={props.id} onAddToCart={addToCartHandler} />
     </div>
   );
 };
