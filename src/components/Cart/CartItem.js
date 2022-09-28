@@ -1,5 +1,5 @@
 import styles from './CartItem.module.css';
-import Input from '../UI/Input/Input';
+import NumberInput from '../UI/Input/NumberInput';
 const CartItem = (props) => {
   return (
     <div className={styles['cart-item']}>
@@ -8,9 +8,9 @@ const CartItem = (props) => {
         <div className={styles['summary']}>
           <h3 className={styles['price']}>{props.price}</h3>
 
-          <Input
+          <NumberInput
             attr={{
-              id: props.id,
+              id: `cart-item-${props.id}`,
               type: 'number',
               min: '1',
               max: '99',
