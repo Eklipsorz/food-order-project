@@ -1,29 +1,19 @@
 import styles from './CartItem.module.css';
-import NumberInput from '../UI/Input/NumberInput';
+
 const CartItem = (props) => {
   return (
     <div className={styles['cart-item']}>
       <div>
         <h2>{props.name}</h2>
         <div className={styles['summary']}>
-          <h3 className={styles['price']}>{props.price}</h3>
-
-          <NumberInput
-            attr={{
-              id: `cart-item-${props.id}`,
-              type: 'number',
-              min: '1',
-              max: '99',
-              step: '1',
-              defaultValue: props.amount,
-            }}
-          />
+          <span className={styles['price']}>{props.price}</span>
+          <span className={styles['amount']}>{props.amount}</span>
         </div>
       </div>
 
       <div className={styles['actions']}>
-        <button onRemove={props.onRemove}>-</button>
-        <button onAdd={props.onAdd}>+</button>
+        <button onClick={props.onRemove}>-</button>
+        <button onClick={props.onAdd}>+</button>
       </div>
     </div>
   );

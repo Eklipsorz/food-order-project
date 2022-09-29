@@ -7,8 +7,18 @@ import CartContext from '../../store/cart-context';
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
-  const addToItemHandler = () => {};
-  const removeItemHandler = () => {};
+
+  const addToItemHandler = (item) => {
+    cartCtx.addItem({
+      ...item,
+      amount: 1,
+    });
+  };
+
+  const removeItemHandler = (id) => {
+    cartCtx.removeItem(id);
+  };
+
   const totalAmount = cartCtx.totalAmount.toFixed(2);
   const hasItems = cartCtx.items.length > 0;
 
@@ -22,7 +32,7 @@ const Cart = (props) => {
             name={item.name}
             price={item.price}
             amount={item.amount}
-            onAdd={addToItemHandler.bind(null, item.id)}
+            onAdd={addToItemHandler.bind(null, item)}
             onRemove={removeItemHandler.bind(null, item.id)}
           />
         ))}

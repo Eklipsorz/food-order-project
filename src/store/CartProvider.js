@@ -6,7 +6,7 @@ const initCart = {
   totalAmount: 0,
 };
 
-const AddItemToCart = (prevState, payload) => {
+const addItemToCart = (prevState, payload) => {
   const { items: currentItems } = prevState;
 
   const updatedTotalAmount =
@@ -35,16 +35,46 @@ const AddItemToCart = (prevState, payload) => {
   };
 };
 
+const removeItemFromCart = (prevState, payload) => {
+  const { items: currentItems } = prevState;
+
+  const existingItemIndex = currentItems.findIndex(
+    (item) => item.id === payload.id,
+  );
+  const existingItem = currentItems[existingItemIndex];
+
+  let updatedItems;
+  if (existingItem.amount === 1) {
+    updatedItems = currentItems.filter((item) => item.id !== payload.id);
+  } else if (existingItem.amount > 1) {
+    const updatedItem = {
+      ...existingItem,
+      amount: existingItem.amount - 1,
+    };
+    updatedItems = [...currentItems];
+    updatedItems[existingItemIndex] = updatedItem;
+  }
+
+  const updatedTotalAmount = prevState.totalAmount - existingItem.price;
+
+  return {
+    items: updatedItems,
+    totalAmount: updatedTotalAmount,
+  };
+};
+
 const cartReducer = (prevState, action) => {
   let { type, payload } = action;
 
   switch (type) {
     case 'ADD_ITEM': {
-      const newState = AddItemToCart(prevState, payload);
+      const newState = addItemToCart(prevState, payload);
       return newState;
     }
-    case 'REMOVE_ITEM':
-      break;
+    case 'REMOVE_ITEM': {
+      const newState = removeItemFromCart(prevState, payload);
+      return newState;
+    }
     default:
       return new Error();
   }
