@@ -6,19 +6,42 @@ const initCart = {
   totalAmount: 0,
 };
 
+const AddItemToCart = (prevState, payload) => {
+  const { items: currentItems } = prevState;
+
+  const updatedTotalAmount =
+    prevState.totalAmount + payload.item.price * payload.item.amount;
+
+  const existingItemIndex = currentItems.findIndex(
+    (item) => item.id === payload.item.id,
+  );
+
+  const existingItem = currentItems[existingItemIndex];
+  let updatedItems;
+  if (existingItem) {
+    const updatedItem = {
+      ...existingItem,
+      amount: existingItem.amount + payload.item.amount,
+    };
+    updatedItems = [...currentItems];
+    updatedItems[existingItemIndex] = updatedItem;
+  } else {
+    updatedItems = currentItems.concat(payload.item);
+  }
+
+  return {
+    items: updatedItems,
+    totalAmount: updatedTotalAmount,
+  };
+};
+
 const cartReducer = (prevState, action) => {
   let { type, payload } = action;
-  console.log('action', type, payload);
+
   switch (type) {
     case 'ADD_ITEM': {
-      const updatedItems = prevState.items.concat(payload.item);
-      console.log('after action', updatedItems);
-      const updatedTotalAmount =
-        prevState.totalAmount + payload.item.price * payload.item.amount;
-      return {
-        items: updatedItems,
-        totalAmount: updatedTotalAmount,
-      };
+      const newState = AddItemToCart(prevState, payload);
+      return newState;
     }
     case 'REMOVE_ITEM':
       break;
