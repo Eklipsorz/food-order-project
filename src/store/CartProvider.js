@@ -35,33 +35,7 @@ const addItemToCart = (prevState, payload) => {
   };
 };
 
-const removeItemFromCart = (prevState, payload) => {
-  const { items: currentItems } = prevState;
-
-  const existingItemIndex = currentItems.findIndex(
-    (item) => item.id === payload.id,
-  );
-  const existingItem = currentItems[existingItemIndex];
-
-  let updatedItems;
-  if (existingItem.amount === 1) {
-    updatedItems = currentItems.filter((item) => item.id !== payload.id);
-  } else if (existingItem.amount > 1) {
-    const updatedItem = {
-      ...existingItem,
-      amount: existingItem.amount - 1,
-    };
-    updatedItems = [...currentItems];
-    updatedItems[existingItemIndex] = updatedItem;
-  }
-
-  const updatedTotalAmount = prevState.totalAmount - existingItem.price;
-
-  return {
-    items: updatedItems,
-    totalAmount: updatedTotalAmount,
-  };
-};
+const removeItemFromCart = (prevState, payload) => {};
 
 const cartReducer = (prevState, action) => {
   let { type, payload } = action;
