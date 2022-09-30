@@ -6,34 +6,7 @@ const initCart = {
   totalAmount: 0,
 };
 
-const addItemToCart = (prevState, payload) => {
-  const { items: currentItems } = prevState;
-
-  const updatedTotalAmount =
-    prevState.totalAmount + payload.item.price * payload.item.amount;
-
-  const existingItemIndex = currentItems.findIndex(
-    (item) => item.id === payload.item.id,
-  );
-
-  const existingItem = currentItems[existingItemIndex];
-  let updatedItems;
-  if (existingItem) {
-    const updatedItem = {
-      ...existingItem,
-      amount: existingItem.amount + payload.item.amount,
-    };
-    updatedItems = [...currentItems];
-    updatedItems[existingItemIndex] = updatedItem;
-  } else {
-    updatedItems = currentItems.concat(payload.item);
-  }
-
-  return {
-    items: updatedItems,
-    totalAmount: updatedTotalAmount,
-  };
-};
+const addItemToCart = (prevState, payload) => {};
 
 const removeItemFromCart = (prevState, payload) => {
   const { items: currentItems } = prevState;
