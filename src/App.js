@@ -2,7 +2,7 @@ import './App.css';
 import MainHeader from './components/Layout/MainHeader';
 import Cart from './components/Cart/Cart';
 import Meals from './components/Meals/Meals';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import CartProvider from './store/CartProvider';
 
 const DUMMY_DATA = [
@@ -33,8 +33,31 @@ const DUMMY_DATA = [
 ];
 
 function App() {
-  const meals = DUMMY_DATA;
+  const [meals, setMeals] = useState([]);
   const [cartIsShown, setCartIsShown] = useState(false);
+
+  const fetchData = useCallback(async () => {
+    const response = await fetch(
+      'https://react-test-http-d24a5-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json',
+    );
+
+    const data = await response.json();
+    const transformedMeals = [];
+
+    for (let key in data) {
+      transformedMeals.push({
+        id: key,
+        name: data[key].name,
+        intro: data[key].intro,
+        price: data[key].price,
+      });
+    }
+    setMeals(transformedMeals);
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const showCartHandler = () => {
     setCartIsShown(true);
