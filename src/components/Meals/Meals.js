@@ -9,7 +9,7 @@ const Meals = (props) => {
 
   useEffect(() => {
     const options = {
-      url: 'https://react-test-http-d24a5-default-rtdb.asia-southeast1.firebasedatabase.app/mealFEs.json',
+      url: 'https://react-test-http-d24a5-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json',
     };
 
     const handler = (data) => {
